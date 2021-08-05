@@ -4,7 +4,7 @@ import random
 import threading
 from PyQt5 import QtGui
 from PyQt5.QtCore import QThread, pyqtSignal
-from PyQt5.QtGui import QImage
+from PyQt5.QtGui import QImage, QIcon
 import requests
 import LanZou
 from CtCloud import CtCloud
@@ -216,6 +216,7 @@ class Demo(QMainWindow, Ui_MainWindow):
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.setStyle(QStyleFactory.create("Window"))
+        self.setWindowIcon(QIcon('./image/favicon.ico'))
 
         # 将右键菜单绑定到槽函数generateMenu
         self.tableWidget.customContextMenuRequested.connect(self.generateMenu)
