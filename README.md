@@ -6,7 +6,7 @@
 
 ## 界面
 
-![主界面](C:\Users\31545\Desktop\Python\books_downloader\image\ui.png)
+![主界面](.\image\ui.png)
 
 
 
