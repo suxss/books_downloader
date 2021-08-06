@@ -85,39 +85,41 @@ class SearchThread(QThread):
         self.kindle8_code = code2
         self.proxy = proxy
 
-    def run(self):
-        if self.source == "SoBooks":
-            sobooks = SoBooks(proxy=self.proxy)
-            sobooks.code = self.Sobooks_code
-            result = sobooks.search(self.word, page=self.page)  # {'name':[],'author':[],'url':[]}
-        elif self.source == "Bloogle":
-            bloogle = Bloogle(proxy=self.proxy)
-            result = bloogle.search(self.word, page=self.page)  # {'name':[],'url':[]}
-        elif self.source == "KgBook":
-            kgbook = KgBook(proxy=self.proxy)
-            result = kgbook.search(self.word, page=self.page)  # {'name':[],'url':[]}
-        elif self.source == "kindle8":
-            kindle8 = Kindle8(proxy=self.proxy)
-            kindle8.code = self.kindle8_code
-            result = kindle8.search(self.word, page=self.page)  # {'name':[],'url':[]}
-        elif self.source == "KsMao":
-            ksmao = KsMao(proxy=self.proxy)
-            result = ksmao.search(self.word)  # {'name':[],'url':[],'host': []}
-        elif self.source == "LanJuHua":
-            lanjuhua = LanJuHua(proxy=self.proxy)
-            result = lanjuhua.search(self.word, page=self.page)  # {'name':[],'fid':[]}
-        elif self.source == "mnbooks":
-            mnbooks = MNBooks(proxy=self.proxy)
-            result = mnbooks.search(self.word, page=self.page)  # {'name':[],'url':[]}
-        elif self.source == "pdfZiYuan":
-            pdfzy = pdfZY(proxy=self.proxy)
-            result = pdfzy.search(self.word, page=self.page)  # {'name':[],'url':[]}
-        elif self.source == "SuiJi":
-            suiji = SuiJi(proxy=self.proxy)
-            result = suiji.search(self.word)  # {'name':[],'url':[]}
-        else:  # self.source == "QiLiXiang":
-            qilixiang = QiLiXiang(proxy=self.proxy)
-            result = qilixiang.search(word=self.word, page=self.page)  # {'name':[],'author':[],'url':[]}
+        try:
+            if self.source == "SoBooks":
+                sobooks = SoBooks(proxy=self.proxy)
+                sobooks.code = self.Sobooks_code
+                result = sobooks.search(self.word, page=self.page)  # {'name':[],'author':[],'url':[]}
+            elif self.source == "Bloogle":
+                bloogle = Bloogle(proxy=self.proxy)
+                result = bloogle.search(self.word, page=self.page)  # {'name':[],'url':[]}
+            elif self.source == "KgBook":
+                kgbook = KgBook(proxy=self.proxy)
+                result = kgbook.search(self.word, page=self.page)  # {'name':[],'url':[]}
+            elif self.source == "kindle8":
+                kindle8 = Kindle8(proxy=self.proxy)
+                kindle8.code = self.kindle8_code
+                result = kindle8.search(self.word, page=self.page)  # {'name':[],'url':[]}
+            elif self.source == "KsMao":
+                ksmao = KsMao(proxy=self.proxy)
+                result = ksmao.search(self.word)  # {'name':[],'url':[],'host': []}
+            elif self.source == "LanJuHua":
+                lanjuhua = LanJuHua(proxy=self.proxy)
+                result = lanjuhua.search(self.word, page=self.page)  # {'name':[],'fid':[]}
+            elif self.source == "mnbooks":
+                mnbooks = MNBooks(proxy=self.proxy)
+                result = mnbooks.search(self.word, page=self.page)  # {'name':[],'url':[]}
+            elif self.source == "pdfZiYuan":
+                pdfzy = pdfZY(proxy=self.proxy)
+                result = pdfzy.search(self.word, page=self.page)  # {'name':[],'url':[]}
+            elif self.source == "SuiJi":
+                suiji = SuiJi(proxy=self.proxy)
+                result = suiji.search(self.word)  # {'name':[],'url':[]}
+            else:  # self.source == "QiLiXiang":
+                qilixiang = QiLiXiang(proxy=self.proxy)
+                result = qilixiang.search(word=self.word, page=self.page)  # {'name':[],'author':[],'url':[]}
+        except:
+            result = {'name': [], 'url': []}
         self.signal.emit(result)
 
 
