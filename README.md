@@ -6,7 +6,7 @@
 
 ## 界面
 
-![主界面](https://github.com/SuXss/books_downloader/blob/main/image/ui.png)
+![主界面](./image/ui.png)
 
 
 
