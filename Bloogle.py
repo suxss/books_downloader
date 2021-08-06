@@ -38,11 +38,3 @@ class Bloogle:
             r'<div class="wp-block-button alignleft"><a class="wp-block-button__link" href="(.*?)">.*?下载</a></div>',
             req_1.text)
         return list_1[0]
-
-
-if __name__ == '__main__':
-    bloogle = Bloogle()
-    a = bloogle.search('历史')
-    print(a)
-    b = bloogle.get_down_url(a['url'][0])
-    print(b)
