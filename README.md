@@ -6,7 +6,7 @@
 
 ## 界面
 
-![主界面](./image/ui.png)
+![主界面](https://cdn.jsdelivr.net/gh/suxss/image/ui.png)
 
 
 
